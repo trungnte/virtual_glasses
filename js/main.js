@@ -12,7 +12,7 @@ let dataGlasses = [
     { id: "G9", src: "./img/g9.jpg", virtualImg: "./img/v9.png", brand: "Coarch", name: "MIDNIGHT VIXEN REMIX", color: "Blue, Black", price: 120, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit consequatur soluta ad aut laborum amet." }
 ];
 
-console.log("Type of dataGlasses[0]: ", typeof(dataGlasses[0]));
+// console.log("Type of dataGlasses[0]: ", typeof(dataGlasses[0]));
 
 let activeGlasses = null;
 
@@ -28,7 +28,7 @@ let findObjById = (id) => {
 }
 
 let wearGlasses = (virtualImg, isShow) => {
-    console.log("virtualImg: ", virtualImg);
+    // console.log("virtualImg: ", virtualImg);
     let content = `
         <div>
             <img src="${virtualImg}">
@@ -40,13 +40,14 @@ let wearGlasses = (virtualImg, isShow) => {
 let showGlassesInfo = (glasses) => {
     let divInfo = document.querySelector("#glassesInfo");
     divInfo.innerHTML = glasses.showInfo();
+    divInfo.setAttribute("style", "display:block;");
 }
 
 window.userChooseGlasses = (id) => {
-    console.log(id);
+    // console.log(id);
     // let glasses = findObjById(id);
     activeGlasses = findObjById(id);
-    console.log(activeGlasses);
+    // console.log(activeGlasses);
 
     if(activeGlasses != null){
         // check flag and show wear glasses
@@ -60,7 +61,7 @@ window.userChooseGlasses = (id) => {
 let loadGlasses = () => {
     let contentBody = "";
     dataGlasses.map(obj => {
-        console.log(obj);
+        // console.log(obj);
         contentBody += `
             <div class="col-4" id="div${obj.id}" onclick="userChooseGlasses('${obj.id}')" >
                 <img src="${obj.src}" class="img-fluid" >
@@ -76,11 +77,11 @@ loadGlasses();
 window.removeGlasses = (bRemoveGlasses) => {
     // remove glasses out of avatar
     if(!bRemoveGlasses) {
-        console.log("Disable glassess!");
-        wearGlasses(activeGlasses.virtualImg, false);
+        // console.log("Disable glassess!");
+        wearGlasses(activeGlasses.virtualImg, bRemoveGlasses);
     }
     else {
-        console.log("Enable glassess!");
-        wearGlasses(activeGlasses.virtualImg, true);
+        // console.log("Enable glassess!");
+        wearGlasses(activeGlasses.virtualImg, bRemoveGlasses);
     }
 }

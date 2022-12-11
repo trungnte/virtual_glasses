@@ -12,9 +12,10 @@ export default class Glasses {
 
     showInfo = () => {
         let content = `
-            <p>${this.name} - ${this.brand} (${this.color}) </p>
-            <p>$${this.price}
-                <span>Stoking</span>
+            <p style="font-weight:bold;" >${this.name} - ${this.brand} (${this.color}) </p>
+            <p>
+                <span style="background-color:red;" >$${this.price}</span>
+                <span style="color: green;" > Stocking</span>
             </p>
             <p>${this.description}</p>
             `;
